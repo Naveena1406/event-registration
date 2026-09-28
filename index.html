@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Event Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background-color: green;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: darkgreen;
+        }
+
+        #message {
+            text-align: center;
+            color: green;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Event Registration Form</h2>
+
+        <form id="registrationForm">
+            <label>Full Name</label>
+            <input type="text" id="name" required>
+
+            <label>Email</label>
+            <input type="email" id="email" required>
+
+            <label>Phone Number</label>
+            <input type="tel" id="phone" required>
+
+            <label>Event Type</label>
+            <select id="event">
+                <option>Workshop</option>
+                <option>Hackathon</option>
+                <option>Seminar</option>
+                <option>Webinar</option>
+            </select>
+
+            <button type="submit">Register</button>
+        </form>
+
+        <p id="message"></p>
+    </div>
+
+    <script>
+        document.getElementById("registrationForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let eventType = document.getElementById("event").value;
+
+            document.getElementById("message").innerHTML =
+                "Registration Successful!<br>" +
+                "Name: " + name + "<br>" +
+                "Email: " + email + "<br>" +
+                "Event: " + eventType;
+
+            document.getElementById("registrationForm").reset();
+        });
+    </script>
+
+</body>
+
+</html>
